@@ -17,6 +17,14 @@ const projectsSchema = new mongoose.Schema({
     technologies: {
         type: Array,
         default: []
+    },
+
+    site: {
+        type: String,
+    },
+
+    code: {
+        type: String
     }
 });
 
