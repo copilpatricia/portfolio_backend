@@ -37,7 +37,6 @@ router.post('/', async(req, res) => {
 });
 
 // PUT route - to update the content of a project
-
 router.put('/:id', async(req, res) => {
     try {
         const {id} = req.params;
@@ -47,4 +46,17 @@ router.put('/:id', async(req, res) => {
     } catch (error) {
         console.log(error)
     }
-})
+});
+
+// DELETE ROUTE - to delete a project 
+router.delete('/:id', async(req, res) => {
+    try {
+       const {id} = req.params;
+       const deleteProject = await Projects.findByIdAndDelete(id)
+       res.json({msg: "Project deleted", deleteProject})
+    } catch (error) {
+        console.log(error)
+    }
+});
+
+export default router;
