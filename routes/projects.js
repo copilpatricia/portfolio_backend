@@ -34,4 +34,17 @@ router.post('/', async(req, res) => {
     } catch (error) {
         console.log(error)
     }
+});
+
+// PUT route - to update the content of a project
+
+router.put('/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        const {body} = req.params;
+        const updateProject = await Projects.findByIdAndUpdate(id, body, {new: true});
+        res.status(200).json(updateProject)
+    } catch (error) {
+        console.log(error)
+    }
 })
